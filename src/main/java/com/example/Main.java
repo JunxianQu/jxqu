@@ -105,8 +105,8 @@ public class Main {
       sol ="Message sent.";
       System.out.println(sol);
     }catch (MessagingException e){ 
-      sol = "error, cause: ";
-      System.out.println( sol + e);
+      sol = "error, cause: "+ e;
+      System.out.println( sol );
     }
 
       String result = visitorName.toUpperCase();
