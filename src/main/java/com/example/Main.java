@@ -83,6 +83,7 @@ public class Main {
     // props.put("mail.transport.protocol", "smtp");
     final String username = "jxqu2web@gmail.com";//
     final String password = "qjx179608472";
+    String sol;
     try{
       Session session = Session.getDefaultInstance(props, 
                           new Authenticator(){
@@ -101,12 +102,15 @@ public class Main {
       msg.setText(visitorMail + " " + visitorMessage);
       msg.setSentDate(new Date());
       Transport.send(msg);
-      System.out.println("Message sent.");
+      sol ="Message sent.";
+      System.out.println(sol);
     }catch (MessagingException e){ 
-      System.out.println("error, cause: " + e);
+      sol = "error, cause: ";
+      System.out.println( sol + e);
     }
 
       String result = visitorName.toUpperCase();
+      model.addAttribute("final", sol);
       model.addAttribute("name", result);
       return "hello";
   }
