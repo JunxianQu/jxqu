@@ -30,6 +30,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.sql.DataSource;
+
+import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,9 +39,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.*;
-// import javax.mail.*;
-// import javax.mail.internet.*;
-// import javax.activation.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
 
 @Controller
 @SpringBootApplication
@@ -63,8 +65,49 @@ public class Main {
   @RequestMapping("/hello")
   String hello(HttpServletRequest request, Model model) {
       // RelativisticModel.select();
-      String m = request.getParameter("name");
-      String result = m.toUpperCase();
+      String visitorName = request.getParameter("name");
+      String visitorMail = request.getParameter("e-mail");
+      String visitorMessage = request.getParameter("message");
+      
+      final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
+ // Get a Properties object
+    Properties props = System.getProperties();
+    props.setProperty("mail.smtp.host", "smtp.gmail.com");
+    props.setProperty("mail.smtp.socketFactory.class", SSL_FACTORY);
+    props.setProperty("mail.smtp.socketFactory.fallback", "false");
+    props.setProperty("mail.smtp.port", "465");
+    props.setProperty("mail.smtp.socketFactory.port", "465");
+    props.put("mail.smtp.auth", "true");
+    props.put("mail.smtp.ssl.enable", "true");
+    props.put("mail.debug", "true");
+    props.put("mail.store.protocol", "pop3");
+    props.put("mail.transport.protocol", "smtp");
+    final String username = "jxqu2web@gmail.com";//
+    final String password = "qjx179608472";
+    try{
+      Session session = Session.getDefaultInstance(props, 
+                          new Authenticator(){
+                             protected PasswordAuthentication getPasswordAuthentication() {
+                                return new PasswordAuthentication(username, password);
+                             }});
+
+   // -- Create a new message --
+      Message msg = new MimeMessage(session);
+
+   // -- Set the FROM and TO fields --
+      msg.setFrom(new InternetAddress(username));
+      msg.setRecipients(Message.RecipientType.TO, 
+                        InternetAddress.parse("isjunxianqu@gmail.com",false));
+      msg.setSubject("from jxqu_web visitor");
+      msg.setText(visitorMail + " " + visitorMessage);
+      msg.setSentDate(new Date());
+      Transport.send(msg);
+      System.out.println("Message sent.");
+    }catch (MessagingException e){ 
+      System.out.println("error, cause: " + e);
+    }
+
+      String result = visitorName.toUpperCase();
       model.addAttribute("name", result);
       return "hello";
   }
