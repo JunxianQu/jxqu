@@ -27,11 +27,9 @@ import org.springframework.stereotype.Controller;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.sql.DataSource;
 
-import java.io.OutputStream;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -41,7 +39,6 @@ import java.util.Map;
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
-import javax.activation.*;
 
 @Controller
 @SpringBootApplication
@@ -74,14 +71,14 @@ public class Main {
     Properties props = System.getProperties();
     props.setProperty("mail.smtp.host", "smtp.gmail.com");
     props.setProperty("mail.smtp.socketFactory.class", SSL_FACTORY);
-    props.setProperty("mail.smtp.socketFactory.fallback", "false");
+    // props.setProperty("mail.smtp.socketFactory.fallback", "false");
     props.setProperty("mail.smtp.port", "465");
     props.setProperty("mail.smtp.socketFactory.port", "465");
     props.put("mail.smtp.auth", "true");
     props.put("mail.smtp.ssl.enable", "true");
     props.put("mail.debug", "true");
-    props.put("mail.store.protocol", "pop3");
-    props.put("mail.transport.protocol", "smtp");
+    // props.put("mail.store.protocol", "pop3");
+    // props.put("mail.transport.protocol", "smtp");
     final String username = "jxqu2web@gmail.com";//
     final String password = "qjx179608472";
     try{
