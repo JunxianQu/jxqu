@@ -78,7 +78,7 @@ public class Main {
     props.put("mail.smtp.auth", "true");
     props.put("mail.smtp.ssl.enable", "true");
     props.put("mail.debug", "true");
-    props.put("mail.store.protocol", "pop3");
+    // props.put("mail.store.protocol", "pop3");
     props.put("mail.transport.protocol", "smtp");
     final String username = "jxqu2web@gmail.com";//
     final String password = "qjx179608472";
