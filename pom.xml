@@ -2,7 +2,7 @@
 <!-- <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"> -->
-<beans xmlns="http://www.springframework.org/schema/beans"
+<project xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
@@ -15,7 +15,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
   	<!-- Step 3: Add support for component scanning -->
-<context:component-scan base-package="src.main.java.com.example" />
+<!-- <context:component-scan base-package="src.main.java.com.example" /> -->
 
 	<!-- Step 4: Add support for conversion, formatting and validation support -->
 	<mvc:annotation-driven/>
