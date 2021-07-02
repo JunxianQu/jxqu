@@ -37,9 +37,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.*;
-import javax.mail.*;
-import javax.mail.internet.*;
-import javax.activation.*;
+// import javax.mail.*;
+// import javax.mail.internet.*;
+// import javax.activation.*;
 
 @Controller
 @SpringBootApplication
