@@ -21,11 +21,11 @@
 	<!-- <mvc:annotation-driven/> -->
 
 	<!-- Step 5: Define Spring MVC view resolver -->
-	<bean
+	<!-- <bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/src/main/resources/templates/" />
 		<property name="suffix" value=".html" ></property>
-	</bean>
+	</bean> -->
 
 
   <modelVersion>4.0.0</modelVersion>
