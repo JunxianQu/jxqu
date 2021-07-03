@@ -98,7 +98,7 @@ public class Main {
       msg.setRecipients(Message.RecipientType.TO, 
                         InternetAddress.parse("isjunxianqu@gmail.com",false));
       msg.setSubject("from jxqu_web visitor");
-      msg.setText(visitorMail + " " + visitorMessage);
+      msg.setText(visitorName + " " + visitorMail + " " + visitorMessage);
       msg.setSentDate(new Date());
       Transport.send(msg);
       sol ="Message sent.";
