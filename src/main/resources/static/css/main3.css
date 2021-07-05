@@ -67,5 +67,10 @@ a:not([href]):not([tabindex]):focus {
   font-family: Georgia, serif;
   font-style: italic;
 }
-
+textarea {
+  resize: none;
+}
+.footerme{
+  text-align: center
+}
   
