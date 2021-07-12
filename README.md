@@ -1,3 +1,3 @@
 # jxqu
 
-personal website
+personal website in Java
